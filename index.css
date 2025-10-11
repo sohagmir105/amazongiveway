@@ -1,0 +1,226 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #FF7B00, #FFD200);
+    /* Orange/Yellow */
+    --secondary-gradient: linear-gradient(135deg, #00C8FF, #007BFF);
+    /* Blue */
+    --green-gradient: linear-gradient(135deg, #00FF8C, #00C850);
+    /* Green */
+    --cta-color: #FF7B00;
+    /* Bright Orange */
+    --cta-hover-color: #FF9F40;
+    --text-color: #333;
+    --white-color: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.2);
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--secondary-gradient);
+    /* Overall background */
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align to top for longer pages */
+    min-height: 100vh;
+}
+
+.landing-page-container {
+    background: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    max-width: 450px;
+    /* Suitable for mobile-first */
+    width: 100%;
+    margin: 20px;
+    overflow: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    background: var(--primary-gradient);
+    color: var(--white-color);
+    padding: 40px 25px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.headline {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px var(--shadow-light);
+}
+
+.description {
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.cta-button {
+    background-color: var(--cta-color);
+    color: var(--white-color);
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 50px;
+    /* More rounded pill shape */
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 10;
+}
+
+.cta-button:hover {
+    background-color: var(--cta-hover-color);
+    transform: translateY(-2px);
+}
+
+/* Features Section */
+.features-section {
+    padding: 30px 25px;
+    text-align: center;
+    background-color: var(--white-color);
+}
+
+.features-section h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--green-gradient);
+    /* Example gradient for icons */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px var(--shadow-light);
+}
+
+.icon-circle img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* Ensure icon images are also rounded */
+    object-fit: cover;
+}
+
+.feature-item h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.feature-item p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: #f8f8f8;
+    padding: 20px 25px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.85em;
+    color: #888;
+}
+
+.security-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.ssl-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    /* Allow links to wrap on small screens */
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--cta-color);
+}
+
+.amazon-logo {
+    height: 20px;
+    /* Adjust as needed */
+    margin-left: 10px;
+    /* Space from other links */
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .landing-page-container {
+        max-width: 600px;
+        /* Wider on tablets/desktops */
+    }
+
+    .headline {
+        font-size: 2.8em;
+    }
+
+    .description {
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        padding: 20px 45px;
+        font-size: 1.4em;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Three columns on larger screens */
+    }
+}
