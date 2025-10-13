@@ -1,146 +1,331 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amazon $750 Gift Card Survey</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$750 Amazon Gift Card Promotion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-    body {
-      background: linear-gradient(135deg, #f6d365, #fda085);
-      padding: 20px;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            color: #343a40;
+            text-align: center;
+        }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      text-align: center;
-    }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-    h1 {
-      color: #ff6600;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
+        header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 30px 20px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            position: relative;
+            animation: fadeInDown 1s ease-out;
+        }
 
-    h2 {
-      color: #333;
-      font-size: 20px;
-      margin: 30px 0 15px 0;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-    p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 25px;
-    }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 400;
+        }
 
-    .cta-button {
-      display: inline-block;
-      background-color: #28a745;
-      color: #fff;
-      padding: 15px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+        .gift-card-image {
+            width: 100%;
+            height: 250px;
+            background: url('https://via.placeholder.com/900x250/FF9900/FFFFFF?text=$750+Amazon+Gift+Card') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: zoomIn 1s ease-out;
+            border-bottom: 5px solid #FF9900;
+        }
 
-    .cta-button:hover {
-      background-color: #218838;
-      transform: scale(1.05);
-    }
+        .gift-card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
 
-    .steps {
-      text-align: left;
-      margin: 20px 0;
-    }
+        .gift-card-image h2 {
+            color: #ffffff;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
 
-    .step {
-      margin-bottom: 15px;
-    }
+        .content {
+            padding: 40px;
+        }
 
-    .step h3 {
-      font-size: 16px;
-      color: #ff6600;
-      margin-bottom: 5px;
-    }
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
 
-    .step p {
-      font-size: 14px;
-      color: #555;
-    }
+        .step-item {
+            flex: 1;
+            min-width: 250px;
+            margin: 15px;
+            padding: 25px;
+            background-color: #f1f7fe;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out forwards;
+        }
 
-    .features {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
+        .step-item:nth-child(1) { animation-delay: 0.2s; }
+        .step-item:nth-child(2) { animation-delay: 0.4s; }
+        .step-item:nth-child(3) { animation-delay: 0.6s; }
 
-    .feature {
-      text-align: left;
-      font-size: 14px;
-      color: #333;
-      padding-left: 20px;
-      position: relative;
-    }
+        .step-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
 
-    .feature::before {
-      content: "✅";
-      position: absolute;
-      left: 0;
-    }
+        .step-item .icon {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
 
-    .footer {
-      font-size: 12px;
-      color: #777;
-      margin-top: 30px;
-    }
-  </style>
+        .step-item h3 {
+            font-size: 1.6em;
+            color: #007bff;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .step-item p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #6c757d;
+        }
+
+        .action-button-wrapper {
+            margin-top: 40px;
+            margin-bottom: 50px;
+            animation: bounceIn 1.5s ease-out;
+        }
+
+        .action-button {
+            display: inline-block;
+            background-color: #FFC107; /* Amazon orange-ish color */
+            color: #333;
+            padding: 18px 45px;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
+        }
+
+        .action-button:hover {
+            background-color: #e0a800;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(255, 193, 7, 0.5);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #adb5bd;
+            padding: 25px 20px;
+            font-size: 0.9em;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            margin-top: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #6c757d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .gift-card-image h2 {
+                font-size: 2.5em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            .step-item {
+                width: 90%;
+                margin: 15px 0;
+            }
+            .action-button {
+                font-size: 1.5em;
+                padding: 15px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .gift-card-image h2 {
+                font-size: 2em;
+            }
+            .action-button {
+                font-size: 1.3em;
+                padding: 12px 25px;
+            }
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.1);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Amazon $750 Gift Card Survey</h1>
-    <p>Take our quick survey about your Amazon experience and receive a $750 gift card as a thank you for your feedback.</p>
-    <a href="https://click2daff.com/click?o=3766&p=16482" class="cta-button" target="_blank">Start Survey Now</a>
+    <div class="container">
+        <header>
+            <h1>Unlock Your Potential!</h1>
+            <p>Don't miss out on this incredible opportunity.</p>
+        </header>
 
-    <h2>Simple 3-Step Process</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>1. Take the Survey</h3>
-        <p>Answer a few quick questions about your Amazon shopping experience.</p>
-      </div>
-      <div class="step">
-        <h3>2. Share Feedback</h3>
-        <p>Tell us about your shopping preferences and experiences.</p>
-      </div>
-      <div class="step">
-        <h3>3. Get Rewarded</h3>
-        <p>Receive your $750 Amazon gift card after completing the survey.</p>
-      </div>
-    </div>
+        <div class="gift-card-image">
+            <h2>Win a $750 Amazon Gift Card!</h2>
+        </div>
 
-    <h2>Why Participate?</h2>
-    <div class="features">
-      <div class="feature">Get a $750 Amazon gift card</div>
-      <div class="feature">Instant digital delivery</div>
-      <div class="feature">Valid at any Amazon location</div>
-      <div class="feature">No purchase necessary</div>
-      <div class="feature">Help improve Amazon services</div>
-    </div>
+        <div class="content">
+            <p style="font-size: 1.3em; margin-bottom: 30px; color: #495057; font-weight: 600;">
+                Your chance to get a massive Amazon Gift Card is here! Shop for anything you desire.
+            </p>
 
-    <div class="footer">
-      © 2025 Amazon Survey. All rights reserved.
+            <div class="steps">
+                <div class="step-item">
+                    <div class="icon">&#128269;</div> <!-- Magnifying glass icon -->
+                    <h3>Step 1: Discover</h3>
+                    <p>Click the button below to start your journey and discover exciting offers.</p>
+                </div>
+                <div class="step-item">
+                    <div class="icon">&#128172;</div> <!-- Speech bubble/document icon -->
+                    <h3>Step 2: Engage</h3>
+                    <p>Complete a few simple tasks or surveys tailored just for you.</p>
+                </div>
+                <div class="step-item">
+                    <div class="icon">&#127873;</div> <!-- Gift icon -->
+                    <h3>Step 3: Redeem</h3>
+                    <p>Claim your $750 Amazon Gift Card once you've completed the requirements!</p>
+                </div>
+            </div>
+
+            <div class="action-button-wrapper">
+                <a href="https://www.af9m8trk.com/C7L11CJQ/54612BXY/" class="action-button" target="_blank">
+                    GET MY $750 AMAZON GIFT CARD NOW!
+                </a>
+            </div>
+
+            <p style="font-size: 0.9em; color: #868e96; margin-top: 40px;">
+                *Terms and conditions apply. Offer subject to change. Limited time promotion.
+            </p>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 UpLevel Rewards. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </footer>
     </div>
-  </div>
 </body>
 </html>
-
-
